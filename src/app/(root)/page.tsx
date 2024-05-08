@@ -1,9 +1,12 @@
-import React from "react";
+import { UserButton } from "@clerk/nextjs";
 
 const HomePage = () => {
   return (
     <>
-      <section className="home">HomePage</section>
+      <section className="home">
+        <h1>Home Page</h1>
+        <UserButton afterSignOutUrl="/" />
+      </section>
     </>
   );
 };
