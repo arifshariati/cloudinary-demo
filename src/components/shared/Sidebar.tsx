@@ -3,8 +3,9 @@
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import { SignedIn } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 import { navLinks } from "@/constants";
+import { Button } from "@/components/ui/button";
 
 const Sidebar = () => {
   const pathname = usePathname();
@@ -29,9 +30,19 @@ const Sidebar = () => {
                   </li>
                 );
               })}
+
+              <li className="flex-center cursor-pointer gap-2 p-4">
+                <UserButton showName afterSignOutUrl="/" />
+              </li>
             </ul>
           </nav>
         </SignedIn>
+
+        <SignedOut>
+          <Button asChild>
+            <Link href={"/sign-in"}>Login</Link>
+          </Button>
+        </SignedOut>
       </div>
     </aside>
   );
