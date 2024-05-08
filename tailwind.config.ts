@@ -64,6 +64,10 @@ const config = {
       fontFamily: {
         robotoFont: ["var(--font-roboto)"],
       },
+      backgroundImage: {
+        "purple-gradient": "url('/assets/images/gradient-bg.svg')",
+        banner: "url('/assets/images/banner-bg.png')",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",

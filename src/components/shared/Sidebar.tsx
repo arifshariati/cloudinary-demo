@@ -19,7 +19,20 @@ const Sidebar = () => {
         <SignedIn>
           <nav className="sidebar-nav">
             <ul className="sidebar-nav_elements">
-              {navLinks.map(({ icon, route, label }) => {
+              {navLinks.slice(0, 6).map(({ icon, route, label }) => {
+                const isActive = route === pathname;
+                return (
+                  <li key={route} className={`sidebar-nav_element group ${isActive ? "bg-gray-900 text-white" : "text-dark-700"}`}>
+                    <Link href={route} className="sidebar-link">
+                      <Image src={icon} alt={`${label} ${icon}`} width={24} height={24} className={`${isActive && "brightness-200"}`} />
+                      {label}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <ul className="sidebar-nav_elements">
+              {navLinks.slice(6).map(({ icon, route, label }) => {
                 const isActive = route === pathname;
                 return (
                   <li key={route} className={`sidebar-nav_element group ${isActive ? "bg-gray-900 text-white" : "text-gray-700"}`}>
@@ -30,7 +43,6 @@ const Sidebar = () => {
                   </li>
                 );
               })}
-
               <li className="flex-center cursor-pointer gap-2 p-4">
                 <UserButton showName afterSignOutUrl="/" />
               </li>
