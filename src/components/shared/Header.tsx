@@ -1,6 +1,6 @@
 type HeaderProps = {
   title: string;
-  subTitle: string;
+  subTitle?: string;
 };
 
 const Header = ({ title, subTitle }: HeaderProps) => {
