@@ -44,7 +44,7 @@ export const Collection = ({
   return (
     <>
       <div className="collection-heading">
-        <h2 className="h2-bold text-dark-600">Recent Edits</h2>
+        <h3 className="h3-bold text-dark-600">Recent Edits</h3>
         {hasSearch && <Search />}
       </div>
 
@@ -100,7 +100,7 @@ const Card = ({ image }: { image: IImage }) => {
           sizes="(max-width: 767px) 100vw, (max-width: 1279px) 50vw, 33vw"
         />
         <div className="flex-between px-2">
-          <p className="p-20-semibold mr-3 line-clamp-1 text-dark-600">{image.title}</p>
+          <p className="mr-3 line-clamp-1 text-dark-600 text-base">{image.title}</p>
           <Image
             src={`/assets/icons/${transformationTypes[image.transformationType as TransformationTypeKey].icon}`}
             alt={image.title}
